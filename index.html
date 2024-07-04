@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarifs de Livraison</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+        select, table { width: 100%; margin-top: 20px; }
+        table { border-collapse: collapse; }
+        th, td { padding: 10px; border: 1px solid #ddd; text-align: left; }
+        th { background-color: #f4f4f4; }
+        .section-title { margin-top: 20px; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Tarifs de Livraison en Algérie</h1>
+        <label for="wilaya-select">Sélectionnez une Wilaya :</label>
+        <select id="wilaya-select" onchange="updateTarifs()">
+            <option value="">--Choisissez une Wilaya--</option>
+            <!-- Ajoutez les options ici -->
+            <option value="Adrar">Adrar</option>
+            <option value="Chlef">Chlef</option>
+            <option value="Laghouat">Laghouat</option>
+            <option value="Oum El Bouaghi">Oum El Bouaghi</option>
+            <option value="Batna">Batna</option>
+        </select>
+        <div class="section-title">توصيل سريع من يوم الى يومين</div>
+        <table id="zr-tarifs-table">
+            <thead>
+                <tr>
+                    <th>الشركة</th>
+                    <th>المنزل</th>
+                    <th>المكتب</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>ZRExpress</td>
+                    <td id="zr-domicile">-</td>
+                    <td id="zr-bureau">-</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="section-title">توصيل من 3 ايام الى اسبوع</div>
+        <table id="ups-tarifs-table">
+            <thead>
+                <tr>
+                    <th>الشركة</th>
+                    <th>المنزل</th>
+                    <th>المكتب</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>UPS</td>
+                    <td id="ups-domicile">-</td>
+                    <td id="ups-bureau">-</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>تقدم شركة ZRExpress توصيل سريع من يوم إلى يومين، بينما تقدم شركة UPS توصيل من 3 أيام إلى أسبوع.</p>
+    </div>
+
+    <script>
+        const tarifs = {
+            "Adrar": {"zr_domicile": "1400", "zr_bureau": "1070", "ups_domicile": "1250", "ups_bureau": "900"},
+            "Chlef": {"zr_domicile": "850", "zr_bureau": "570", "ups_domicile": "600", "ups_bureau": "450"},
+            "Laghouat": {"zr_domicile": "950", "zr_bureau": "670", "ups_domicile": "750", "ups_bureau": "570"},
+            "Oum El Bouaghi": {"zr_domicile": "850", "zr_bureau": "570", "ups_domicile": "600", "ups_bureau": "450"},
+            "Batna": {"zr_domicile": "850", "zr_bureau": "570", "ups_domicile": "600", "ups_bureau": "450"}
+        };
+
+        function updateTarifs() {
+            const wilaya = document.getElementById("wilaya-select").value;
+            if (wilaya && tarifs[wilaya]) {
+                document.getElementById("zr-domicile").textContent = tarifs[wilaya]["zr_domicile"];
+                document.getElementById("zr-bureau").textContent = tarifs[wilaya]["zr_bureau"];
+                document.getElementById("ups-domicile").textContent = tarifs[wilaya]["ups_domicile"];
+                document.getElementById("ups-bureau").textContent = tarifs[wilaya]["ups_bureau"];
+            } else {
+                document.getElementById("zr-domicile").textContent = "-";
+                document.getElementById("zr-bureau").textContent = "-";
+                document.getElementById("ups-domicile").textContent = "-";
+                document.getElementById("ups-bureau").textContent = "-";
+            }
+        }
+    </script>
+</body>
+</html>
