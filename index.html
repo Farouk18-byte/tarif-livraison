@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -5,25 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tarifs de Livraison</title>
     <style>
-        .container {
-            position: relative;
-        }
-        .logo {
-            position: relative;
-            top: 10px; /* Ajustez la valeur pour placer le logo à la hauteur désirée */
-            right: 10px; /* Ajustez la valeur pour placer le logo à droite */
-            max-width: 200px; /* Définissez une largeur maximale pour le logo */
-            height: auto; /* Assurez-vous que la hauteur s'ajuste automatiquement */
-        }
+        body { font-family: Arial, sans-serif; }
+        .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+        select, table { width: 100%; margin-top: 20px; }
+        table { border-collapse: collapse; }
+        th, td { padding: 10px; border: 1px solid #ddd; text-align: left; }
+        th { background-color: #f4f4f4; }
+        .section-title { margin-top: 20px; font-weight: bold; }
     </style>
 </head>
 <body>
     <div class="container">
-        <img src="logo.png" alt="Logo" class="logo">
         <h1> "سعر التوصيل مع متجر "هدية الموحد </h1>
         <label for="wilaya-select">اختر الولاية :</label>
         <select id="wilaya-select" onchange="updateTarifs()">
-            <option value="">--Choisissez une Wilaya--</option>
+            
+ <option value="">--Choisissez une Wilaya--</option>
             <option value="Adrar">1 - أدرار</option>
             <option value="Chlef">2 - الشلف</option>
             <option value="Laghouat">3 - الأغواط</option>
@@ -81,9 +79,9 @@
             <option value="Touggourt">55 - تقرت</option>
             <option value="Djanet">56 - جانت</option>
             <option value="El M'Ghair">57 - المغير</option>
-            <option value="El Menia">58 - المنيعة</option>
-        </select>
-        <table id="tarifs-table">
+            <option value="El Menia">58 - المنيعة</option>        </select>
+        <div class="section-title">توصيل سريع من يوم الى يومين</div>
+        <table id="zr-tarifs-table">
             <thead>
                 <tr>
                     <th>الشركة</th>
@@ -97,6 +95,18 @@
                     <td id="zr-domicile">-</td>
                     <td id="zr-bureau">-</td>
                 </tr>
+            </tbody>
+        </table>
+        <div class="section-title">توصيل من 3 ايام الى اسبوع</div>
+        <table id="ups-tarifs-table">
+            <thead>
+                <tr>
+                   <th>الشركة</th>
+                    <th>المنزل</th>
+                    <th>المكتب</th>
+                </tr>
+            </thead>
+            <tbody>
                 <tr>
                     <td>UPS</td>
                     <td id="ups-domicile">-</td>
@@ -122,67 +132,67 @@
             "Tébessa": {"zr_domicile": "900", "zr_bureau": "570", "ups_domicile": "570", "ups_bureau": "550"},
             "Tlemcen": {"zr_domicile": "750", "zr_bureau": "570", "ups_domicile": "500", "ups_bureau": "400"},
             "Tiaret": {"zr_domicile": "800", "zr_bureau": "570", "ups_domicile": "600", "ups_bureau": "450"},
-                        "Tizi Ouzou": {"zr_domicile": "850", "zr_bureau": "570", "ups_domicile": "600", "ups_bureau": "450"},
-            "Alger": {"zr_domicile": "700", "zr_bureau": "470", "ups_domicile": "500", "ups_bureau": "350"},
-            "Djelfa": {"zr_domicile": "950", "zr_bureau": "670", "ups_domicile": "750", "ups_bureau": "570"},
+            "Tizi Ouzou": {"zr_domicile": "850", "zr_bureau": "570", "ups_domicile": "600", "ups_bureau": "450"},
+            "Alger": {"zr_domicile": "650", "zr_bureau": "470", "ups_domicile": "600", "ups_bureau": "450"},
+            "Djelfa": {"zr_domicile": "950", "zr_bureau": "670", "ups_domicile": "750", "ups_bureau": "550"},
             "Jijel": {"zr_domicile": "850", "zr_bureau": "570", "ups_domicile": "600", "ups_bureau": "450"},
             "Sétif": {"zr_domicile": "850", "zr_bureau": "570", "ups_domicile": "600", "ups_bureau": "450"},
-            "Saïda": {"zr_domicile": "850", "zr_bureau": "570", "ups_domicile": "600", "ups_bureau": "450"},
+            "Saïda": {"zr_domicile": "750", "zr_bureau": "570", "ups_domicile": "600", "ups_bureau": "450"},
             "Skikda": {"zr_domicile": "850", "zr_bureau": "570", "ups_domicile": "600", "ups_bureau": "450"},
-            "Sidi Bel Abbès": {"zr_domicile": "850", "zr_bureau": "570", "ups_domicile": "600", "ups_bureau": "450"},
+            "Sidi Bel Abbès": {"zr_domicile": "750", "zr_bureau": "570", "ups_domicile": "500", "ups_bureau": "400"},
             "Annaba": {"zr_domicile": "850", "zr_bureau": "570", "ups_domicile": "600", "ups_bureau": "450"},
-            "Guelma": {"zr_domicile": "850", "zr_bureau": "570", "ups_domicile": "600", "ups_bureau": "450"},
+            "Guelma": {"zr_domicile": "850", "zr_bureau": "570", "ups_domicile": "Non Livrable", "ups_bureau": "Non Livrable"},
             "Constantine": {"zr_domicile": "850", "zr_bureau": "570", "ups_domicile": "600", "ups_bureau": "450"},
-            "Médéa": {"zr_domicile": "850", "zr_bureau": "570", "ups_domicile": "600", "ups_bureau": "450"},
-            "Mostaganem": {"zr_domicile": "800", "zr_bureau": "570", "ups_domicile": "600", "ups_bureau": "450"},
-            "M'Sila": {"zr_domicile": "950", "zr_bureau": "670", "ups_domicile": "750", "ups_bureau": "570"},
-            "Mascara": {"zr_domicile": "800", "zr_bureau": "570", "ups_domicile": "600", "ups_bureau": "450"},
-            "Ouargla": {"zr_domicile": "1100", "zr_bureau": "870", "ups_domicile": "900", "ups_bureau": "700"},
-            "Oran": {"zr_domicile": "800", "zr_bureau": "570", "ups_domicile": "600", "ups_bureau": "450"},
-            "El Bayadh": {"zr_domicile": "1000", "zr_bureau": "720", "ups_domicile": "750", "ups_bureau": "570"},
-            "Illizi": {"zr_domicile": "1700", "zr_bureau": "1270", "ups_domicile": "1450", "ups_bureau": "1300"},
+            "Médéa": {"zr_domicile": "800", "zr_bureau": "570", "ups_domicile": "600", "ups_bureau": "450"},
+            "Mostaganem": {"zr_domicile": "700", "zr_bureau": "520", "ups_domicile": "600", "ups_bureau": "450"},
+            "M'Sila": {"zr_domicile": "900", "zr_bureau": "670", "ups_domicile": "600", "ups_bureau": "450"},
+            "Mascara": {"zr_domicile": "750", "zr_bureau": "570", "ups_domicile": "500", "ups_bureau": "400"},
+            "Ouargla": {"zr_domicile": "1000", "zr_bureau": "720", "ups_domicile": "750", "ups_bureau": "550"},
+            "Oran": {"zr_domicile": "750", "zr_bureau": "570", "ups_domicile": "500", "ups_bureau": "400"},
+            "El Bayadh": {"zr_domicile": "1200", "zr_bureau": "770", "ups_domicile": "Non Livrable", "ups_bureau": "Non Livrable"},
+            "Illizi": {"zr_domicile": "Non Livrable", "zr_bureau": "Non Livrable", "ups_domicile": "Non Livrable", "ups_bureau": "Non Livrable"},
             "Bordj Bou Arréridj": {"zr_domicile": "850", "zr_bureau": "570", "ups_domicile": "600", "ups_bureau": "450"},
             "Boumerdès": {"zr_domicile": "800", "zr_bureau": "570", "ups_domicile": "600", "ups_bureau": "450"},
-            "El Tarf": {"zr_domicile": "850", "zr_bureau": "570", "ups_domicile": "600", "ups_bureau": "450"},
-            "Tindouf": {"zr_domicile": "1600", "zr_bureau": "1200", "ups_domicile": "1400", "ups_bureau": "1200"},
+            "El Tarf": {"zr_domicile": "900", "zr_bureau": "570", "ups_domicile": "600", "ups_bureau": "450"},
+            "Tindouf": {"zr_domicile": "Non Livrable", "zr_bureau": "Non Livrable", "ups_domicile": "Non Livrable", "ups_bureau": "Non Livrable"},
             "Tissemsilt": {"zr_domicile": "850", "zr_bureau": "570", "ups_domicile": "600", "ups_bureau": "450"},
-            "El Oued": {"zr_domicile": "1100", "zr_bureau": "870", "ups_domicile": "900", "ups_bureau": "700"},
-            "Khenchela": {"zr_domicile": "850", "zr_bureau": "570", "ups_domicile": "600", "ups_bureau": "450"},
+            "El Oued": {"zr_domicile": "1000", "zr_bureau": "720", "ups_domicile": "750", "ups_bureau": "550"},
+            "Khenchela": {"zr_domicile": "850", "zr_bureau": "Non Livrable", "ups_domicile": "600", "ups_bureau": "450"},
             "Souk Ahras": {"zr_domicile": "850", "zr_bureau": "570", "ups_domicile": "600", "ups_bureau": "450"},
-            "Tipaza": {"zr_domicile": "800", "zr_bureau": "570", "ups_domicile": "600", "ups_bureau": "450"},
+            "Tipaza": {"zr_domicile": "850", "zr_bureau": "570", "ups_domicile": "600", "ups_bureau": "450"},
             "Mila": {"zr_domicile": "850", "zr_bureau": "570", "ups_domicile": "600", "ups_bureau": "450"},
             "Aïn Defla": {"zr_domicile": "800", "zr_bureau": "570", "ups_domicile": "600", "ups_bureau": "450"},
-            "Naâma": {"zr_domicile": "1000", "zr_bureau": "720", "ups_domicile": "750", "ups_bureau": "570"},
-            "Aïn Témouchent": {"zr_domicile": "800", "zr_bureau": "570", "ups_domicile": "600", "ups_bureau": "450"},
-            "Ghardaïa": {"zr_domicile": "1100", "zr_bureau": "870", "ups_domicile": "900", "ups_bureau": "700"},
+            "Naâma": {"zr_domicile": "1000", "zr_bureau": "670", "ups_domicile": "Non Livrable", "ups_bureau": "Non Livrable"},
+            "Aïn Témouchent": {"zr_domicile": "500", "zr_bureau": "420", "ups_domicile": "400", "ups_bureau": "300"},
+            "Ghardaïa": {"zr_domicile": "950", "zr_bureau": "670", "ups_domicile": "750", "ups_bureau": "550"},
             "Relizane": {"zr_domicile": "800", "zr_bureau": "570", "ups_domicile": "600", "ups_bureau": "450"},
-            "Timimoun": {"zr_domicile": "1500", "zr_bureau": "1070", "ups_domicile": "1200", "ups_bureau": "1000"},
-            "Bordj Badji Mokhtar": {"zr_domicile": "1700", "zr_bureau": "1270", "ups_domicile": "1450", "ups_bureau": "1300"},
-            "Ouled Djellal": {"zr_domicile": "950", "zr_bureau": "670", "ups_domicile": "750", "ups_bureau": "570"},
-            "Béni Abbès": {"zr_domicile": "1200", "zr_bureau": "870", "ups_domicile": "1000", "ups_bureau": "800"},
-            "In Salah": {"zr_domicile": "1700", "zr_bureau": "1270", "ups_domicile": "1450", "ups_bureau": "1300"},
-            "In Guezzam": {"zr_domicile": "1700", "zr_bureau": "1270", "ups_domicile": "1450", "ups_bureau": "1300"},
-            "Touggourt": {"zr_domicile": "1100", "zr_bureau": "870", "ups_domicile": "900", "ups_bureau": "700"},
-            "Djanet": {"zr_domicile": "1700", "zr_bureau": "1270", "ups_domicile": "1450", "ups_bureau": "1300"},
-            "El M'Ghair": {"zr_domicile": "1100", "zr_bureau": "870", "ups_domicile": "900", "ups_bureau": "700"},
-            "El Menia": {"zr_domicile": "1500", "zr_bureau": "1070", "ups_domicile": "1200", "ups_bureau": "1000"}
+            "Timimoun": {"zr_domicile": "1400", "zr_bureau": "Non Livrable", "ups_domicile": "Non Livrable", "ups_bureau": "Non Livrable"},
+            "Bordj Badji Mokhtar": {"zr_domicile": "Non Livrable", "zr_bureau": "Non Livrable", "ups_domicile": "Non Livrable", "ups_bureau": "Non Livrable"},
+            "Ouled Djellal": {"zr_domicile": "1000", "zr_bureau": "670", "ups_domicile": "Non Livrable", "ups_bureau": "Non Livrable"},
+            "Béni Abbès": {"zr_domicile": "1200", "zr_bureau": "1070", "ups_domicile": "Non Livrable", "ups_bureau": "Non Livrable"},
+            "In Salah": {"zr_domicile": "1700", "zr_bureau": "Non Livrable", "ups_domicile": "Non Livrable", "ups_bureau": "Non Livrable"},
+            "In Guezzam": {"zr_domicile": "1700", "zr_bureau": "Non Livrable", "ups_domicile": "Non Livrable", "ups_bureau": "Non Livrable"},
+            "Touggourt": {"zr_domicile": "1000", "zr_bureau": "720", "ups_domicile": "Non Livrable", "ups_bureau": "Non Livrable"},
+            "Djanet": {"zr_domicile": "Non Livrable", "zr_bureau": "Non Livrable", "ups_domicile": "Non Livrable", "ups_bureau": "Non Livrable"},
+            "El M'Ghair": {"zr_domicile": "1000", "zr_bureau": "Non Livrable", "ups_domicile": "Non Livrable", "ups_bureau": "Non Livrable"},
+            "El Menia": {"zr_domicile": "1000", "zr_bureau": "Non Livrable", "ups_domicile": "Non Livrable", "ups_bureau": "Non Livrable"},
+
         };
 
         function updateTarifs() {
-            const selectedWilaya = document.getElementById('wilaya-select').value;
-            if (tarifs[selectedWilaya]) {
-                document.getElementById('zr-domicile').textContent = tarifs[selectedWilaya].zr_domicile + ' DA';
-                document.getElementById('zr-bureau').textContent = tarifs[selectedWilaya].zr_bureau + ' DA';
-                document.getElementById('ups-domicile').textContent = tarifs[selectedWilaya].ups_domicile + ' DA';
-                document.getElementById('ups-bureau').textContent = tarifs[selectedWilaya].ups_bureau + ' DA';
+            const wilaya = document.getElementById("wilaya-select").value;
+            if (wilaya && tarifs[wilaya]) {
+                document.getElementById("zr-domicile").textContent = tarifs[wilaya]["zr_domicile"];
+                document.getElementById("zr-bureau").textContent = tarifs[wilaya]["zr_bureau"];
+                document.getElementById("ups-domicile").textContent = tarifs[wilaya]["ups_domicile"];
+                document.getElementById("ups-bureau").textContent = tarifs[wilaya]["ups_bureau"];
             } else {
-                document.getElementById('zr-domicile').textContent = '-';
-                document.getElementById('zr-bureau').textContent = '-';
-                document.getElementById('ups-domicile').textContent = '-';
-                document.getElementById('ups-bureau').textContent = '-';
+                document.getElementById("zr-domicile").textContent = "-";
+                document.getElementById("zr-bureau").textContent = "-";
+                document.getElementById("ups-domicile").textContent = "-";
+                document.getElementById("ups-bureau").textContent = "-";
             }
         }
     </script>
 </body>
 </html>
-
