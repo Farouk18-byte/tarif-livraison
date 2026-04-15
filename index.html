@@ -1,4 +1,4 @@
-            <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr" dir="rtl">
 <head>
     <meta charset="UTF-8">
@@ -7,211 +7,155 @@
 
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: linear-gradient(135deg, #f0f2f5, #e6ecf0);
             margin: 0;
-            padding: 0;
-            text-align: center;
         }
 
         .container {
-            max-width: 500px;
-            margin: 30px auto;
+            max-width: 420px;
+            margin: 40px auto;
             background: #fff;
-            padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            padding: 25px;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            text-align: center;
         }
 
         .logo {
-            width: 120px;
-            height: auto;
-            display: block;
-            margin: 0 auto 15px;
+            width: 90px;
+            margin-bottom: 10px;
         }
 
         h1 {
-            font-size: 20px;
+            font-size: 18px;
             margin-bottom: 20px;
+            color: #333;
         }
 
         label {
-            display: block;
-            margin-bottom: 8px;
+            font-size: 14px;
             font-weight: bold;
+            color: #555;
         }
 
         select {
             width: 100%;
-            padding: 10px;
-            margin-bottom: 20px;
-            border-radius: 8px;
-            border: 1px solid #ccc;
+            padding: 12px;
+            margin: 15px 0 25px;
+            border-radius: 10px;
+            border: 1px solid #ddd;
             font-size: 14px;
+            outline: none;
+            transition: 0.3s;
         }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
+        select:focus {
+            border-color: #007bff;
         }
 
-        th, td {
-            padding: 10px;
-            border-bottom: 1px solid #ddd;
+        .card {
+            background: #fafafa;
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: 0.2s;
         }
 
-        th {
-            background-color: #f0f0f0;
+        .card:hover {
+            background: #f1f5ff;
         }
 
-        tr:hover {
-            background-color: #f9f9f9;
+        .title {
+            font-size: 14px;
+            color: #555;
+        }
+
+        .price {
+            font-size: 16px;
+            font-weight: bold;
+            color: #007bff;
+        }
+
+        .empty {
+            color: #999;
+        }
+
+        .footer {
+            margin-top: 20px;
+            font-size: 12px;
+            color: #aaa;
         }
     </style>
 </head>
 
 <body>
     <div class="container">
-        <img src="logo.png" alt="Logo" class="logo">
+        <img src="logo.png" class="logo">
 
-        <h1>سعر التوصيل مع متجر هدية الموحد</h1>
+        <h1>سعر التوصيل - ZR Express</h1>
 
-        <label for="wilaya-select">اختر الولاية :</label>
+        <label>اختر الولاية</label>
 
         <select id="wilaya-select" onchange="updateTarifs()">
-            <option value="">--Choisissez une Wilaya--</option>
-            <option value="Adrar">1 - أدرار</option>
-            <option value="Chlef">2 - الشلف</option>
-            <option value="Laghouat">3 - الأغواط</option>
-            <option value="Oum El Bouaghi">4 - أم البواقي</option>
-            <option value="Batna">5 - باتنة</option>
-            <option value="Béjaïa">6 - بجاية</option>
-            <option value="Biskra">7 - بسكرة</option>
-            <option value="Béchar">8 - بشار</option>
-            <option value="Blida">9 - البليدة</option>
-            <option value="Bouira">10 - البويرة</option>
-            <option value="Tamanrasset">11 - تمنراست</option>
-            <option value="Tébessa">12 - تبسة</option>
-            <option value="Tlemcen">13 - تلمسان</option>
-            <option value="Tiaret">14 - تيارت</option>
-            <option value="Tizi Ouzou">15 - تيزي وزو</option>
-            <option value="Alger">16 - الجزائر</option>
-            <option value="Djelfa">17 - الجلفة</option>
-            <option value="Jijel">18 - جيجل</option>
-            <option value="Sétif">19 - سطيف</option>
-            <option value="Saïda">20 - سعيدة</option>
-            <option value="Skikda">21 - سكيكدة</option>
-            <option value="Sidi Bel Abbès">22 - سيدي بلعباس</option>
-            <option value="Annaba">23 - عنابة</option>
-            <option value="Guelma">24 - قالمة</option>
-            <option value="Constantine">25 - قسنطينة</option>
-            <option value="Médéa">26 - المدية</option>
-            <option value="Mostaganem">27 - مستغانم</option>
-            <option value="M'Sila">28 - المسيلة</option>
-            <option value="Mascara">29 - معسكر</option>
-            <option value="Ouargla">30 - ورقلة</option>
-            <option value="Oran">31 - وهران</option>
-            <option value="El Bayadh">32 - البيض</option>
-            <option value="Illizi">33 - إيليزي</option>
-            <option value="Bordj Bou Arréridj">34 - برج بوعريريج</option>
-            <option value="Boumerdès">35 - بومرداس</option>
-            <option value="El Tarf">36 - الطارف</option>
-            <option value="Tindouf">37 - تندوف</option>
-            <option value="Tissemsilt">38 - تسمسيلت</option>
-            <option value="El Oued">39 - الوادي</option>
-            <option value="Khenchela">40 - خنشلة</option>
-            <option value="Souk Ahras">41 - سوق أهراس</option>
-            <option value="Tipaza">42 - تيبازة</option>
-            <option value="Mila">43 - ميلة</option>
-            <option value="Aïn Defla">44 - عين الدفلى</option>
-            <option value="Naâma">45 - النعامة</option>
-            <option value="Aïn Témouchent">46 - عين تموشنت</option>
-            <option value="Ghardaïa">47 - غرداية</option>
-            <option value="Relizane">48 - غليزان</option>
-            <option value="Timimoun">49 - تيميمون</option>
-            <option value="Bordj Badji Mokhtar">50 - برج باجي مختار</option>
-            <option value="Ouled Djellal">51 - أولاد جلال</option>
-            <option value="Béni Abbès">52 - بني عباس</option>
-            <option value="In Salah">53 - عين صالح</option>
-            <option value="In Guezzam">54 - عين قزام</option>
-            <option value="Touggourt">55 - تقرت</option>
-            <option value="Djanet">56 - جانت</option>
-            <option value="El M'Ghair">57 - المغير</option>
-            <option value="El Menia">58 - المنيعة</option>
+            <option value="">-- اختر --</option>
+            <option value="Adrar">أدرار</option>
+            <option value="Chlef">الشلف</option>
+            <option value="Laghouat">الأغواط</option>
+            <option value="Batna">باتنة</option>
+            <option value="Biskra">بسكرة</option>
+            <option value="Béchar">بشار</option>
+            <option value="Blida">البليدة</option>
+            <option value="Tamanrasset">تمنراست</option>
+            <option value="Tlemcen">تلمسان</option>
+            <option value="Alger">الجزائر</option>
+            <option value="Oran">وهران</option>
+            <option value="El Bayadh">البيض</option>
         </select>
 
-        <table id="tarifs-table">
-            <thead>
-                <tr>
-                    <th>الشركة</th>
-                    <th>المنزل</th>
-                    <th>المكتب</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>ZRExpress</td>
-                    <td id="zr-domicile">-</td>
-                    <td id="zr-bureau">-</td>
-                </tr>
-                <tr>
-                    <td>UPS</td>
-                    <td id="ups-domicile">-</td>
-                    <td id="ups-bureau">-</td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="card">
+            <span class="title">التوصيل للمنزل</span>
+            <span id="zr-domicile" class="price empty">-</span>
+        </div>
+
+        <div class="card">
+            <span class="title">التوصيل للمكتب</span>
+            <span id="zr-bureau" class="price empty">-</span>
+        </div>
+
+        <div class="footer">
+            ZR Express Delivery Service
+        </div>
     </div>
 
     <script>
         const tarifs = {
-            "Adrar": {"zr_domicile": "1400", "zr_bureau": "1070", "ups_domicile": "1250", "ups_bureau": "900"},
-            "Chlef": {"zr_domicile": "850", "zr_bureau": "570", "ups_domicile": "600", "ups_bureau": "450"},
-            "Laghouat": {"zr_domicile": "950", "zr_bureau": "670", "ups_domicile": "750", "ups_bureau": "570"},
-            "Oum El Bouaghi": {"zr_domicile": "850", "zr_bureau": "570", "ups_domicile": "600", "ups_bureau": "450"},
-            "Batna": {"zr_domicile": "850", "zr_bureau": "570", "ups_domicile": "600", "ups_bureau": "450"},
-            "Béjaïa": {"zr_domicile": "850", "zr_bureau": "570", "ups_domicile": "600", "ups_bureau": "450"},
-            "Biskra": {"zr_domicile": "950", "zr_bureau": "670", "ups_domicile": "750", "ups_bureau": "570"},
-            "Béchar": {"zr_domicile": "1000", "zr_bureau": "720", "ups_domicile": "750", "ups_bureau": "550"},
-            "Blida": {"zr_domicile": "800", "zr_bureau": "570", "ups_domicile": "600", "ups_bureau": "450"},
-            "Bouira": {"zr_domicile": "850", "zr_bureau": "570", "ups_domicile": "600", "ups_bureau": "450"},
-            "Tamanrasset": {"zr_domicile": "1700", "zr_bureau": "1270", "ups_domicile": "1450", "ups_bureau": "1300"},
-            "Tébessa": {"zr_domicile": "900", "zr_bureau": "570", "ups_domicile": "570", "ups_bureau": "550"},
-            "Tlemcen": {"zr_domicile": "750", "zr_bureau": "570", "ups_domicile": "500", "ups_bureau": "400"},
-            "Tiaret": {"zr_domicile": "800", "zr_bureau": "570", "ups_domicile": "600", "ups_bureau": "450"},
-            "Tizi Ouzou": {"zr_domicile": "850", "zr_bureau": "570", "ups_domicile": "600", "ups_bureau": "450"},
-            "Alger": {"zr_domicile": "650", "zr_bureau": "470", "ups_domicile": "600", "ups_bureau": "450"},
-            "Djelfa": {"zr_domicile": "950", "zr_bureau": "670", "ups_domicile": "750", "ups_bureau": "550"},
-            "Jijel": {"zr_domicile": "850", "zr_bureau": "570", "ups_domicile": "600", "ups_bureau": "450"},
-            "Sétif": {"zr_domicile": "850", "zr_bureau": "570", "ups_domicile": "600", "ups_bureau": "450"},
-            "Saïda": {"zr_domicile": "750", "zr_bureau": "570", "ups_domicile": "600", "ups_bureau": "450"},
-            "Skikda": {"zr_domicile": "850", "zr_bureau": "570", "ups_domicile": "600", "ups_bureau": "450"},
-            "Sidi Bel Abbès": {"zr_domicile": "750", "zr_bureau": "570", "ups_domicile": "500", "ups_bureau": "400"},
-            "Annaba": {"zr_domicile": "850", "zr_bureau": "570", "ups_domicile": "600", "ups_bureau": "450"},
-            "Guelma": {"zr_domicile": "850", "zr_bureau": "570", "ups_domicile": "Non Livrable", "ups_bureau": "Non Livrable"},
-            "Constantine": {"zr_domicile": "850", "zr_bureau": "570", "ups_domicile": "600", "ups_bureau": "450"},
-            "Médéa": {"zr_domicile": "800", "zr_bureau": "570", "ups_domicile": "600", "ups_bureau": "450"},
-            "Mostaganem": {"zr_domicile": "700", "zr_bureau": "520", "ups_domicile": "600", "ups_bureau": "450"},
-            "M'Sila": {"zr_domicile": "900", "zr_bureau": "670", "ups_domicile": "600", "ups_bureau": "450"},
-            "Mascara": {"zr_domicile": "750", "zr_bureau": "570", "ups_domicile": "500", "ups_bureau": "400"},
-            "Ouargla": {"zr_domicile": "1000", "zr_bureau": "720", "ups_domicile": "750", "ups_bureau": "550"},
-            "Oran": {"zr_domicile": "750", "zr_bureau": "570", "ups_domicile": "500", "ups_bureau": "400"},
-            "El Bayadh": {"zr_domicile": "1200", "zr_bureau": "770", "ups_domicile": "Non Livrable", "ups_bureau": "Non Livrable"}
+            "Adrar": {"zr_domicile": "1400", "zr_bureau": "1070"},
+            "Chlef": {"zr_domicile": "850", "zr_bureau": "570"},
+            "Laghouat": {"zr_domicile": "950", "zr_bureau": "670"},
+            "Batna": {"zr_domicile": "850", "zr_bureau": "570"},
+            "Biskra": {"zr_domicile": "950", "zr_bureau": "670"},
+            "Béchar": {"zr_domicile": "1000", "zr_bureau": "720"},
+            "Blida": {"zr_domicile": "800", "zr_bureau": "570"},
+            "Tamanrasset": {"zr_domicile": "1700", "zr_bureau": "1270"},
+            "Tlemcen": {"zr_domicile": "750", "zr_bureau": "570"},
+            "Alger": {"zr_domicile": "650", "zr_bureau": "470"},
+            "Oran": {"zr_domicile": "750", "zr_bureau": "570"},
+            "El Bayadh": {"zr_domicile": "1200", "zr_bureau": "770"}
         };
 
         function updateTarifs() {
             const wilaya = document.getElementById("wilaya-select").value;
 
             if (wilaya && tarifs[wilaya]) {
-                document.getElementById("zr-domicile").textContent = tarifs[wilaya]["zr_domicile"];
-                document.getElementById("zr-bureau").textContent = tarifs[wilaya]["zr_bureau"];
-                document.getElementById("ups-domicile").textContent = tarifs[wilaya]["ups_domicile"];
-                document.getElementById("ups-bureau").textContent = tarifs[wilaya]["ups_bureau"];
+                document.getElementById("zr-domicile").textContent = tarifs[wilaya]["zr_domicile"] + " دج";
+                document.getElementById("zr-bureau").textContent = tarifs[wilaya]["zr_bureau"] + " دج";
             } else {
                 document.getElementById("zr-domicile").textContent = "-";
                 document.getElementById("zr-bureau").textContent = "-";
-                document.getElementById("ups-domicile").textContent = "-";
-                document.getElementById("ups-bureau").textContent = "-";
             }
         }
     </script>
