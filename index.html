@@ -244,8 +244,8 @@ let txt="📦 سعر التوصيل - "+name+"\n\n";
 txt+="🏠 للمنزل: "+(d=="0"?"غير متوفر":d+" دج")+"\n";
 txt+="🏢 للمكتب: "+(b=="0"?"غير متوفر":b+" دج");
 
-
-alert("تم النسخ ✔");
+navigator.clipboard.writeText(txt);
+alert
 }
 
 </script>
