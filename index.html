@@ -1,3 +1,159 @@
+<!DOCTYPE html>
+<html lang="fr" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarifs de Livraison</title>
+
+    <style>
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: linear-gradient(135deg, #f0f2f5, #e6ecf0);
+            margin: 0;
+        }
+
+        .container {
+            max-width: 420px;
+            margin: 40px auto;
+            background: #fff;
+            padding: 25px;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+
+        .logo {
+            width: 90px;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        label {
+            font-size: 14px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        select {
+            width: 100%;
+            padding: 12px;
+            margin: 15px 0 25px;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+            font-size: 14px;
+            outline: none;
+        }
+
+        .card {
+            background: #fafafa;
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .title {
+            font-size: 14px;
+            color: #555;
+        }
+
+        .price {
+            font-size: 16px;
+            font-weight: bold;
+            color: #007bff;
+        }
+    </style>
+</head>
+
+<body>
+<div class="container">
+    <img src="logo.png" class="logo">
+    <h1>سعر التوصيل - ZR Express</h1>
+
+    <label>اختر الولاية</label>
+
+    <select id="wilaya-select" onchange="updateTarifs()">
+        <option value="">-- اختر --</option>
+
+        <option value="Adrar">1 - أدرار</option>
+        <option value="Chlef">2 - الشلف</option>
+        <option value="Laghouat">3 - الأغواط</option>
+        <option value="Oum El Bouaghi">4 - أم البواقي</option>
+        <option value="Batna">5 - باتنة</option>
+        <option value="Béjaïa">6 - بجاية</option>
+        <option value="Biskra">7 - بسكرة</option>
+        <option value="Béchar">8 - بشار</option>
+        <option value="Blida">9 - البليدة</option>
+        <option value="Bouira">10 - البويرة</option>
+        <option value="Tamanrasset">11 - تمنراست</option>
+        <option value="Tébessa">12 - تبسة</option>
+        <option value="Tlemcen">13 - تلمسان</option>
+        <option value="Tiaret">14 - تيارت</option>
+        <option value="Tizi Ouzou">15 - تيزي وزو</option>
+        <option value="Alger">16 - الجزائر</option>
+        <option value="Djelfa">17 - الجلفة</option>
+        <option value="Jijel">18 - جيجل</option>
+        <option value="Sétif">19 - سطيف</option>
+        <option value="Saïda">20 - سعيدة</option>
+        <option value="Skikda">21 - سكيكدة</option>
+        <option value="Sidi Bel Abbès">22 - سيدي بلعباس</option>
+        <option value="Annaba">23 - عنابة</option>
+        <option value="Guelma">24 - قالمة</option>
+        <option value="Constantine">25 - قسنطينة</option>
+        <option value="Médéa">26 - المدية</option>
+        <option value="Mostaganem">27 - مستغانم</option>
+        <option value="M'Sila">28 - المسيلة</option>
+        <option value="Mascara">29 - معسكر</option>
+
+        <option value="Ouargla">30 - ورقلة</option>
+        <option value="Oran">31 - وهران</option>
+        <option value="El Bayadh">32 - البيض</option>
+        <option value="Illizi">33 - إيليزي</option>
+        <option value="Bordj Bou Arréridj">34 - برج بوعريريج</option>
+        <option value="Boumerdès">35 - بومرداس</option>
+        <option value="El Tarf">36 - الطارف</option>
+        <option value="Tindouf">37 - تندوف</option>
+        <option value="Tissemsilt">38 - تسمسيلت</option>
+        <option value="El Oued">39 - الوادي</option>
+        <option value="Khenchela">40 - خنشلة</option>
+        <option value="Souk Ahras">41 - سوق أهراس</option>
+        <option value="Tipaza">42 - تيبازة</option>
+        <option value="Mila">43 - ميلة</option>
+        <option value="Aïn Defla">44 - عين الدفلى</option>
+        <option value="Naâma">45 - النعامة</option>
+        <option value="Aïn Témouchent">46 - عين تموشنت</option>
+        <option value="Ghardaïa">47 - غرداية</option>
+        <option value="Relizane">48 - غليزان</option>
+        <option value="Timimoun">49 - تيميمون</option>
+        <option value="Bordj Badji Mokhtar">50 - برج باجي مختار</option>
+        <option value="Ouled Djellal">51 - أولاد جلال</option>
+        <option value="Béni Abbès">52 - بني عباس</option>
+        <option value="In Salah">53 - عين صالح</option>
+        <option value="In Guezzam">54 - عين قزام</option>
+        <option value="Touggourt">55 - تقرت</option>
+        <option value="Djanet">56 - جانت</option>
+        <option value="El M'Ghair">57 - المغير</option>
+        <option value="El Menia">58 - المنيعة</option>
+    </select>
+
+    <div class="card">
+        <span class="title">التوصيل للمنزل</span>
+        <span id="zr-domicile" class="price">-</span>
+    </div>
+
+    <div class="card">
+        <span class="title">التوصيل للمكتب</span>
+        <span id="zr-bureau" class="price">-</span>
+    </div>
+</div>
+
 <script>
 const tarifs = {
     "Adrar": {"zr_domicile": "1400", "zr_bureau": "1070"},
@@ -29,7 +185,6 @@ const tarifs = {
     "Mostaganem": {"zr_domicile": "700", "zr_bureau": "520"},
     "M'Sila": {"zr_domicile": "900", "zr_bureau": "670"},
     "Mascara": {"zr_domicile": "750", "zr_bureau": "570"},
-
     "Ouargla": {"zr_domicile": "1000", "zr_bureau": "720"},
     "Oran": {"zr_domicile": "750", "zr_bureau": "570"},
     "El Bayadh": {"zr_domicile": "1200", "zr_bureau": "770"},
@@ -65,7 +220,6 @@ function updateTarifs() {
     let w = document.getElementById("wilaya-select").value;
 
     if (tarifs[w]) {
-
         let domicile = tarifs[w].zr_domicile;
         let bureau = tarifs[w].zr_bureau;
 
@@ -74,10 +228,12 @@ function updateTarifs() {
 
         document.getElementById("zr-bureau").textContent =
             (bureau == "0") ? "غير متوفر" : bureau + " دج";
-
     } else {
         document.getElementById("zr-domicile").textContent = "غير متوفر";
         document.getElementById("zr-bureau").textContent = "غير متوفر";
     }
 }
 </script>
+
+</body>
+</html>
